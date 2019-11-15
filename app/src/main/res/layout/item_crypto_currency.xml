@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/item_crypto_currency_default_margin"
+    app:cardCornerRadius="@dimen/item_crypto_currency_card_corner_radius"
+    app:elevation="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/item_crypto_currency_default_padding"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/crypto_currency_name_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/crypto_currency_name_string"
+            style="@style/ItemCardTextStyle" />
+
+        <TextView
+            android:id="@+id/market_cap_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/market_cap_string"
+            style="@style/ItemCardTextStyle" />
+
+        <TextView
+            android:id="@+id/price_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/price_string"
+            style="@style/ItemCardTextStyle" />
+
+        <TextView
+            android:id="@+id/volume_24h_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/volume_24h_string"
+            style="@style/ItemCardTextStyle" />
+
+        <TextView
+            android:id="@+id/circulating_supply_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/circulating_supply_string"
+            style="@style/ItemCardTextStyle" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

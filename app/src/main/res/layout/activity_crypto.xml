@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".crypto_mvp.CryptoActivity">
+    tools:context=".frameworks_drivers.ui.CryptoActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/crypto_recycler_view"

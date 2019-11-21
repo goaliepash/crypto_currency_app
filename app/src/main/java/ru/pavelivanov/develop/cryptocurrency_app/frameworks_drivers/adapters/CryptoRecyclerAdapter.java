@@ -1,4 +1,4 @@
-package ru.pavelivanov.develop.cryptocurrency_app.adapters;
+package ru.pavelivanov.develop.cryptocurrency_app.frameworks_drivers.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView.Adapter;
 import java.math.RoundingMode;
 import java.util.List;
 import ru.pavelivanov.develop.cryptocurrency_app.R;
-import ru.pavelivanov.develop.cryptocurrency_app.remote.pojo.Datum;
+import ru.pavelivanov.develop.cryptocurrency_app.frameworks_drivers.remote.pojo.Datum;
 
 public class CryptoRecyclerAdapter extends Adapter<CryptoRecyclerAdapter.CryptoViewHolder> {
 
@@ -38,7 +38,7 @@ public class CryptoRecyclerAdapter extends Adapter<CryptoRecyclerAdapter.CryptoV
         return data.size();
     }
 
-    static class CryptoViewHolder extends RecyclerView.ViewHolder {
+    public static class CryptoViewHolder extends RecyclerView.ViewHolder {
 
         private TextView cryptoCurrencyNameTextView;
         private TextView marketCapTextView;

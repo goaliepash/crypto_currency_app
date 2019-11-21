@@ -1,4 +1,4 @@
-package ru.pavelivanov.develop.cryptocurrency_app.remote.pojo;
+package ru.pavelivanov.develop.cryptocurrency_app.frameworks_drivers.remote.pojo;
 
 import com.google.gson.annotations.SerializedName;
 import java.util.List;

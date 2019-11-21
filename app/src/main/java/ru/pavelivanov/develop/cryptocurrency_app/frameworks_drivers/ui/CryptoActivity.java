@@ -1,4 +1,4 @@
-package ru.pavelivanov.develop.cryptocurrency_app.crypto_mvp;
+package ru.pavelivanov.develop.cryptocurrency_app.frameworks_drivers.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,8 +8,10 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import java.util.List;
 import ru.pavelivanov.develop.cryptocurrency_app.R;
-import ru.pavelivanov.develop.cryptocurrency_app.adapters.CryptoRecyclerAdapter;
-import ru.pavelivanov.develop.cryptocurrency_app.remote.pojo.Datum;
+import ru.pavelivanov.develop.cryptocurrency_app.frameworks_drivers.adapters.CryptoRecyclerAdapter;
+import ru.pavelivanov.develop.cryptocurrency_app.frameworks_drivers.remote.pojo.Datum;
+import ru.pavelivanov.develop.cryptocurrency_app.frameworks_drivers.ui.implementations.ICryptoView;
+import ru.pavelivanov.develop.cryptocurrency_app.interface_adapters.presenters.CryptoPresenter;
 
 public class CryptoActivity extends AppCompatActivity implements ICryptoView {
 

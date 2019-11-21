@@ -1,4 +1,4 @@
-package ru.pavelivanov.develop.cryptocurrency_app.utils;
+package ru.pavelivanov.develop.cryptocurrency_app.business_rules.utils;
 
 public class Constants {
     public static final String BASE_URL = "https://pro-api.coinmarketcap.com/";

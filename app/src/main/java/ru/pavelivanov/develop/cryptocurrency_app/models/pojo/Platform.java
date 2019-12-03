@@ -1,4 +1,4 @@
-package ru.pavelivanov.develop.cryptocurrency_app.frameworks_drivers.remote.pojo;
+package ru.pavelivanov.develop.cryptocurrency_app.models.pojo;
 
 import com.google.gson.annotations.SerializedName;
 

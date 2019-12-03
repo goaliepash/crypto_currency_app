@@ -14,7 +14,7 @@
         android:roundIcon="@drawable/ic_monetization_on_24dp"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".frameworks_drivers.ui.CryptoActivity">
+        <activity android:name=".presentation.ui.CryptoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

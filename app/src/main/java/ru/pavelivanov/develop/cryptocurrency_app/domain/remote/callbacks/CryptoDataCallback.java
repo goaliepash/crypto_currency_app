@@ -1,11 +1,11 @@
-package ru.pavelivanov.develop.cryptocurrency_app.frameworks_drivers.remote.callbacks;
+package ru.pavelivanov.develop.cryptocurrency_app.domain.remote.callbacks;
 
 import java.lang.ref.WeakReference;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import ru.pavelivanov.develop.cryptocurrency_app.frameworks_drivers.ui.implementations.ICryptoView;
-import ru.pavelivanov.develop.cryptocurrency_app.frameworks_drivers.remote.pojo.Data;
+import ru.pavelivanov.develop.cryptocurrency_app.presentation.ui.implementations.ICryptoView;
+import ru.pavelivanov.develop.cryptocurrency_app.models.pojo.Data;
 
 public class CryptoDataCallback implements Callback<Data> {
 

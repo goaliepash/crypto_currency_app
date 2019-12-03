@@ -3,4 +3,5 @@
     <dimen name="item_crypto_currency_default_margin">8dp</dimen>
     <dimen name="item_crypto_currency_default_padding">8dp</dimen>
     <dimen name="item_crypto_currency_card_corner_radius">8dp</dimen>
+    <dimen name="toolbar_inset">0dp</dimen>
 </resources>

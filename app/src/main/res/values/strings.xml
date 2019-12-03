@@ -5,4 +5,5 @@
     <string name="price_string"><b>Price:\u0020</b></string>
     <string name="volume_24h_string"><b>Volume (24h):\u0020</b></string>
     <string name="circulating_supply_string"><b>Circulating Supply:\u0020</b></string>
+    <string name="search_string">Search</string>
 </resources>

@@ -1,9 +1,25 @@
 <resources>
     <string name="app_name">Cryptocurrency quotes</string>
+    <string name="rank_string"><b>Rank:\u0020</b></string>
     <string name="crypto_currency_name_string"><b>Name:\u0020</b></string>
     <string name="market_cap_string"><b>Market Cap:\u0020</b></string>
     <string name="price_string"><b>Price:\u0020</b></string>
     <string name="volume_24h_string"><b>Volume (24h):\u0020</b></string>
     <string name="circulating_supply_string"><b>Circulating Supply:\u0020</b></string>
     <string name="search_string">Search</string>
+    <string name="sort_by_string">Sort by:</string>
+
+    <string name="market_cap">market_cap</string>
+    <string name="name">name</string>
+    <string name="price">price</string>
+    <string name="volume_24h">volume_24h</string>
+    <string name="circulating_supply">circulating_supply</string>
+
+    <string-array name="sort_by_array">
+        <item>@string/market_cap</item>
+        <item>@string/name</item>
+        <item>@string/price</item>
+        <item>@string/volume_24h</item>
+        <item>@string/circulating_supply</item>
+    </string-array>
 </resources>

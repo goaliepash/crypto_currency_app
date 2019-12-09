@@ -14,6 +14,7 @@ import ru.pavelivanov.develop.cryptocurrency_app.models.pojo.Datum;
 public class CryptoViewHolder extends BaseHolder {
 
     private Context context;
+    private TextView rankTextView;
     private TextView cryptoCurrencyNameTextView;
     private TextView marketCapTextView;
     private TextView priceTextView;
@@ -23,6 +24,7 @@ public class CryptoViewHolder extends BaseHolder {
     public CryptoViewHolder(@NonNull View itemView, Context context) {
         super(itemView);
         this.context = context;
+        rankTextView = itemView.findViewById(R.id.rank_text_view);
         cryptoCurrencyNameTextView = itemView.findViewById(R.id.crypto_currency_name_text_view);
         marketCapTextView = itemView.findViewById(R.id.market_cap_text_view);
         priceTextView = itemView.findViewById(R.id.price_text_view);
@@ -31,21 +33,49 @@ public class CryptoViewHolder extends BaseHolder {
     }
 
     public void onBind(Datum datum) {
-
         String cryptoCurrencyName = context.getString(R.string.crypto_currency_name_string) + datum.name;
         cryptoCurrencyNameTextView.setText(cryptoCurrencyName);
 
-        String marketCap = context.getString(R.string.market_cap_string) + datum.quote.uSD.marketCap.setScale(2, RoundingMode.UP).toString();
-        marketCapTextView.setText(marketCap);
 
-        String price = context.getString(R.string.price_string) + datum.quote.uSD.price.setScale(2, RoundingMode.UP).toString();
-        priceTextView.setText(price);
 
-        String volume24h = context.getString(R.string.volume_24h_string) + datum.quote.uSD.volume24h.setScale(2, RoundingMode.UP).toString();
-        volume24hTextView.setText(volume24h);
+        if (datum.cmcRank != null) {
+            String rank = context.getString(R.string.rank_string) + datum.cmcRank;
+            rankTextView.setText(rank);
+        } else {
+            return;
+        }
 
-        String circulatingSupply = context.getString(R.string.circulating_supply_string) + datum.circulatingSupply.setScale(2, RoundingMode.UP).toString();
-        circulatingSupplyTextView.setText(circulatingSupply);
+        if (datum.quote.uSD.marketCap != null) {
+            String marketCap = context.getString(R.string.market_cap_string) + datum.quote.uSD.marketCap.setScale(2, RoundingMode.UP).toString();
+            marketCapTextView.setText(marketCap);
+        } else {
+            String marketCap = context.getString(R.string.market_cap_string);
+            marketCapTextView.setText(marketCap);
+        }
+
+        if (datum.quote.uSD.price != null) {
+            String price = context.getString(R.string.price_string) + datum.quote.uSD.price.setScale(2, RoundingMode.UP).toString();
+            priceTextView.setText(price);
+        } else {
+            String price = context.getString(R.string.price_string);
+            priceTextView.setText(price);
+        }
+
+        if (datum.quote.uSD.volume24h != null) {
+            String volume24h = context.getString(R.string.volume_24h_string) + datum.quote.uSD.volume24h.setScale(2, RoundingMode.UP).toString();
+            volume24hTextView.setText(volume24h);
+        } else {
+            String volume24h = context.getString(R.string.volume_24h_string);
+            volume24hTextView.setText(volume24h);
+        }
+
+        if (datum.circulatingSupply != null) {
+            String circulatingSupply = context.getString(R.string.circulating_supply_string) + datum.circulatingSupply.setScale(2, RoundingMode.UP).toString();
+            circulatingSupplyTextView.setText(circulatingSupply);
+        } else {
+            String circulatingSupply = context.getString(R.string.circulating_supply_string);
+            circulatingSupplyTextView.setText(circulatingSupply);
+        }
     }
 
     @Override

@@ -7,7 +7,10 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 
 import java.util.List;
 
@@ -22,6 +25,7 @@ import static ru.pavelivanov.develop.cryptocurrency_app.domain.listeners.Paginat
 
 public class CryptoActivity extends AppCompatActivity implements ICryptoView, SwipeRefreshLayout.OnRefreshListener{
 
+    private Spinner sortSpinner;
     private RelativeLayout progressRelativeLayout;
     private SwipeRefreshLayout cryptoSwipeRefreshLayout;
     private CryptoPresenter cryptoPresenter;
@@ -29,40 +33,53 @@ public class CryptoActivity extends AppCompatActivity implements ICryptoView, Sw
     private CryptoRecyclerAdapter cryptoAdapter;
     private int currentPage = PAGE_START;
     private boolean isLastPage = false;
-    private int totalPage = 100;
+    private static final int INCREMENT = 10;
+    private static final int TOTAL_PAGE = 5000;
     private boolean isLoading = false;
+    private String sortMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crypto);
+        initSpinner();
         initRecyclerView();
         initCryptoSwipeRefreshLayout();
         initProgressRelativeLayout();
         initPresenter();
     }
 
+    /**
+     * Показать ProgressBar, пока идёт загрузка данных.
+     */
     @Override
     public void showProgress() {
         progressRelativeLayout.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * Скрыть ProgressBar, когда загрузка данных закончилась.
+     */
     @Override
     public void hideProgress() {
         progressRelativeLayout.setVisibility(View.GONE);
     }
 
+    /**
+     * Получить данные по криптовалютам.
+     *
+     * @param data Данные по криптовалютам
+     */
     @Override
     public void setCryptoCurrency(List<Datum> data) {
-        cryptoAdapter = new CryptoRecyclerAdapter(this, data);
-        recyclerView.setAdapter(cryptoAdapter);
 
         if (currentPage != PAGE_START) {
             cryptoAdapter.removeLoading();
         }
+        cryptoAdapter.addItems(data);
         cryptoSwipeRefreshLayout.setRefreshing(false);
 
-        if (currentPage < totalPage) {
+        if (currentPage < TOTAL_PAGE) {
             cryptoAdapter.addLoading();
         } else {
             isLastPage = true;
@@ -70,24 +87,59 @@ public class CryptoActivity extends AppCompatActivity implements ICryptoView, Sw
         isLoading = false;
     }
 
+    /**
+     * Обновить список.
+     */
     @Override
     public void onRefresh() {
         currentPage = PAGE_START;
         isLastPage = false;
         cryptoAdapter.clear();
-        cryptoPresenter.loadCryptoData(currentPage, totalPage);
+        cryptoPresenter.loadCryptoData(currentPage, INCREMENT, sortMode);
+    }
+
+    private void initSpinner() {
+        String[] data = getResources().getStringArray(R.array.sort_by_array);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, data);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sortSpinner = findViewById(R.id.sort_spinner);
+        sortSpinner.setAdapter(adapter);
+        sortSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (adapterView.getSelectedItem().toString().equals(getString(R.string.market_cap))) {
+                    sortMode = getString(R.string.market_cap);
+                } else if (adapterView.getSelectedItem().toString().equals(getString(R.string.name))) {
+                    sortMode = getString(R.string.name);
+                } else if (adapterView.getSelectedItem().toString().equals(getString(R.string.price))) {
+                    sortMode = getString(R.string.price);
+                } else if (adapterView.getSelectedItem().toString().equals(getString(R.string.volume_24h))) {
+                    sortMode = getString(R.string.volume_24h);
+                } else if (adapterView.getSelectedItem().toString().equals(getString(R.string.circulating_supply))) {
+                    sortMode = getString(R.string.circulating_supply);
+                }
+                onRefresh();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     private void initRecyclerView() {
+        cryptoAdapter = new CryptoRecyclerAdapter(this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recyclerView = findViewById(R.id.crypto_recycler_view);
+        recyclerView.setAdapter(cryptoAdapter);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.addOnScrollListener(new PaginationListener(layoutManager) {
             @Override
             protected void loadMoreItems() {
                 isLoading = true;
-                currentPage++;
-                cryptoPresenter.loadCryptoData(currentPage, totalPage);
+                currentPage += INCREMENT;
+                cryptoPresenter.loadCryptoData(currentPage, INCREMENT, sortMode);
             }
 
             @Override
@@ -113,6 +165,5 @@ public class CryptoActivity extends AppCompatActivity implements ICryptoView, Sw
 
     private void initPresenter() {
         cryptoPresenter = new CryptoPresenter(this);
-        cryptoPresenter.loadCryptoData(currentPage, totalPage);
     }
 }

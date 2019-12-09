@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ru.pavelivanov.develop.cryptocurrency_app.R;
@@ -20,11 +21,10 @@ public class CryptoRecyclerAdapter extends Adapter<BaseHolder> {
     private static final int VIEW_TYPE_NORMAL = 1;
     private boolean isLoaderVisible = false;
     private Context context;
-    private List<Datum> data;
+    private List<Datum> data = new ArrayList<>();
 
-    public CryptoRecyclerAdapter(Context context, List<Datum> data) {
+    public CryptoRecyclerAdapter(Context context) {
         this.context = context;
-        this.data = data;
     }
 
     @NonNull

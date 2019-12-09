@@ -16,6 +16,13 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/rank_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/rank_string"
+            style="@style/ItemCardTextStyle"/>
+
+        <TextView
             android:id="@+id/crypto_currency_name_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

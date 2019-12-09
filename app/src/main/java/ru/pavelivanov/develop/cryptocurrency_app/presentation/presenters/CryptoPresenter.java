@@ -16,16 +16,28 @@ public class CryptoPresenter {
     private WeakReference<ICryptoView> cryptoViewWeakReference;
     private CryptoApi coinApi = NetworkService.getInstance().getJSONApi();
 
+    /**
+     * Конструктор с одним параметром.
+     *
+     * @param cryptoView Ссылка на View
+     */
     public CryptoPresenter(ICryptoView cryptoView) {
         this.cryptoViewWeakReference = new WeakReference<>(cryptoView);
     }
 
-    public void loadCryptoData(int start, int limit) {
+    /**
+     * Загрузить данные по криптовалютам из интернета.
+     *
+     * @param start Стартовая позиция списка
+     * @param limit Сколько элементов данных получить
+     * @param sort Параметр сортировки
+     */
+    public void loadCryptoData(int start, int limit, String sort) {
         if (cryptoViewWeakReference.get() != null) {
             cryptoViewWeakReference.get().showProgress();
         }
 
-        Call<Data> call = coinApi.getLatestQuotes(Constants.CMC_PRO_API_KEY, start, limit);
+        Call<Data> call = coinApi.getLatestQuotes(Constants.CMC_PRO_API_KEY, start, limit, sort);
         call.enqueue(new CryptoDataCallback(cryptoViewWeakReference.get()));
     }
 }

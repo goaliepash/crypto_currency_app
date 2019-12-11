@@ -10,8 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ru.pavelivanov.develop.cryptocurrency_app.R;
+import ru.pavelivanov.develop.cryptocurrency_app.domain.listeners.CryptoItemClickListener;
 import ru.pavelivanov.develop.cryptocurrency_app.presentation.adapters.holders.BaseHolder;
-import ru.pavelivanov.develop.cryptocurrency_app.models.pojo.Datum;
+import ru.pavelivanov.develop.cryptocurrency_app.data.pojo.listing_latest_response.Crypto;
 import ru.pavelivanov.develop.cryptocurrency_app.presentation.adapters.holders.CryptoViewHolder;
 import ru.pavelivanov.develop.cryptocurrency_app.presentation.adapters.holders.ProgressHolder;
 
@@ -21,7 +22,7 @@ public class CryptoRecyclerAdapter extends Adapter<BaseHolder> {
     private static final int VIEW_TYPE_NORMAL = 1;
     private boolean isLoaderVisible = false;
     private Context context;
-    private List<Datum> data = new ArrayList<>();
+    private List<Crypto> data = new ArrayList<>();
 
     public CryptoRecyclerAdapter(Context context) {
         this.context = context;
@@ -46,8 +47,9 @@ public class CryptoRecyclerAdapter extends Adapter<BaseHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull BaseHolder holder, int position) {
-        Datum datum = data.get(position);
-        holder.onBind(datum);
+        Crypto crypto = data.get(position);
+        holder.itemView.setOnClickListener(new CryptoItemClickListener(context, crypto));
+        holder.onBind(crypto, position + 1);
     }
 
     @Override
@@ -64,21 +66,21 @@ public class CryptoRecyclerAdapter extends Adapter<BaseHolder> {
         return data == null ? 0 : data.size();
     }
 
-    public void addItems(List<Datum> dataList) {
+    public void addItems(List<Crypto> dataList) {
         data.addAll(dataList);
         notifyDataSetChanged();
     }
 
     public void addLoading() {
         isLoaderVisible = true;
-        data.add(new Datum());
+        data.add(new Crypto());
         notifyItemInserted(data.size() - 1);
     }
 
     public void removeLoading() {
         isLoaderVisible = false;
         int position = data.size() - 1;
-        Datum item = getItem(position);
+        Crypto item = getItem(position);
         if (item != null) {
             data.remove(position);
             notifyItemRemoved(position);
@@ -90,7 +92,7 @@ public class CryptoRecyclerAdapter extends Adapter<BaseHolder> {
         notifyDataSetChanged();
     }
 
-    private Datum getItem(int position) {
+    private Crypto getItem(int position) {
         return data.get(position);
     }
 }

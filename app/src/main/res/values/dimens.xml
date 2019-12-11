@@ -5,4 +5,7 @@
     <dimen name="item_crypto_currency_card_corner_radius">8dp</dimen>
     <dimen name="toolbar_inset">0dp</dimen>
     <dimen name="sort_layout_default_margin">8dp</dimen>
+    <dimen name="raise_image_view_margin_start">8dp</dimen>
+    <dimen name="fragment_info_padding">16dp</dimen>
+    <dimen name="info_margin_bottom_default">8dp</dimen>
 </resources>

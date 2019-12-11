@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/crypto_info_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/fragment_info_padding"
+    tools:context=".presentation.ui.fragments.InfoFragment">
+
+    <TextView
+        android:id="@+id/name_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/info_margin_bottom_default"
+        tools:text="@string/crypto_currency_name_string"
+        style="@style/InfoTextStyle" />
+
+    <TextView
+        android:id="@+id/date_added_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/info_margin_bottom_default"
+        tools:text="@string/date_added_string"
+        style="@style/InfoTextStyle" />
+
+    <TextView
+        android:id="@+id/max_supply_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/info_margin_bottom_default"
+        tools:text="@string/max_supply_string"
+        style="@style/InfoTextStyle" />
+
+    <TextView
+        android:id="@+id/total_supply_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/info_margin_bottom_default"
+        tools:text="@string/total_supply_string"
+        style="@style/InfoTextStyle" />
+
+    <TextView
+        android:id="@+id/price_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/info_margin_bottom_default"
+        tools:text="@string/price_string"
+        style="@style/InfoTextStyle" />
+
+    <TextView
+        android:id="@+id/volume_24h_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/info_margin_bottom_default"
+        tools:text="@string/volume_24h_string"
+        style="@style/InfoTextStyle" />
+
+    <RelativeLayout
+        android:id="@+id/percentage_change_1h_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/info_margin_bottom_default">
+
+        <TextView
+            android:id="@+id/percentage_change_1h_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/percentage_change_1h_string"
+            style="@style/InfoTextStyle" />
+
+        <ImageView
+            android:id="@+id/percentage_change_1h_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/percentage_change_1h_text_view"
+            android:contentDescription="@string/raise_string"
+            android:layout_marginStart="@dimen/raise_image_view_margin_start"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/percentage_change_24h_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/info_margin_bottom_default">
+
+        <TextView
+            android:id="@+id/percentage_change_24h_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/percentage_change_24h_string"
+            style="@style/InfoTextStyle" />
+
+        <ImageView
+            android:id="@+id/percentage_change_24h_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/percentage_change_24h_text_view"
+            android:contentDescription="@string/raise_string"
+            android:layout_marginStart="@dimen/raise_image_view_margin_start"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/percentage_change_7d_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/info_margin_bottom_default">
+
+        <TextView
+            android:id="@+id/percentage_change_7d_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/percentage_change_7d_string"
+            style="@style/InfoTextStyle" />
+
+        <ImageView
+            android:id="@+id/percentage_change_7d_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/percentage_change_7d_text_view"
+            android:contentDescription="@string/raise_string"
+            android:layout_marginStart="@dimen/raise_image_view_margin_start"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/market_cap_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/info_margin_bottom_default"
+        tools:text="@string/market_cap_string"
+        style="@style/InfoTextStyle" />
+
+</LinearLayout>

@@ -1,7 +1,7 @@
 package ru.pavelivanov.develop.cryptocurrency_app.presentation.ui.implementations;
 
 import java.util.List;
-import ru.pavelivanov.develop.cryptocurrency_app.models.pojo.Datum;
+import ru.pavelivanov.develop.cryptocurrency_app.data.pojo.listing_latest_response.Crypto;
 
 public interface ICryptoView {
 
@@ -20,5 +20,5 @@ public interface ICryptoView {
      *
      * @param data Данные по криптовалютам
      */
-    void setCryptoCurrency(List<Datum> data);
+    void setCryptoCurrency(List<Crypto> data);
 }

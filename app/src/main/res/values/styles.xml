@@ -11,6 +11,11 @@
         <item name="android:textColor">@android:color/black</item>
     </style>
 
+    <style name="InfoTextStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
     <style name="MaterialSearchViewStyle">
         <!-- Background for the search bar -->
         <item name="searchBackground">@color/white</item>

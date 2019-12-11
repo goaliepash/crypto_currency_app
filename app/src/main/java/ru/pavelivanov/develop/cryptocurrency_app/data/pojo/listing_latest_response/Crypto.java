@@ -1,11 +1,19 @@
-package ru.pavelivanov.develop.cryptocurrency_app.models.pojo;
+package ru.pavelivanov.develop.cryptocurrency_app.data.pojo.listing_latest_response;
+
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-public class Datum {
+/**
+ * Parcelable-класс для получения объектов криптовалюты из интернета
+ *
+ * @author Иванов Павел Александрович
+ */
+public class Crypto implements Parcelable {
 
     /**
      * Уникальный идентификатор для криптовалюты.
@@ -99,4 +107,80 @@ public class Datum {
      */
     @SerializedName("quote")
     public Quote quote;
+
+    /**
+     * Класс по умолчанию.
+     */
+    public Crypto() {
+
+    }
+
+    protected Crypto(Parcel in) {
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readInt();
+        }
+        name = in.readString();
+        symbol = in.readString();
+        slug = in.readString();
+        if (in.readByte() == 0) {
+            cmcRank = null;
+        } else {
+            cmcRank = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            numMarketPairs = null;
+        } else {
+            numMarketPairs = in.readInt();
+        }
+        lastUpdated = in.readString();
+        dateAdded = in.readString();
+        tags = in.createStringArrayList();
+    }
+
+    public static final Creator<Crypto> CREATOR = new Creator<Crypto>() {
+        @Override
+        public Crypto createFromParcel(Parcel in) {
+            return new Crypto(in);
+        }
+
+        @Override
+        public Crypto[] newArray(int size) {
+            return new Crypto[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        if (id == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeInt(id);
+        }
+        parcel.writeString(name);
+        parcel.writeString(symbol);
+        parcel.writeString(slug);
+        if (cmcRank == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeInt(cmcRank);
+        }
+        if (numMarketPairs == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeInt(numMarketPairs);
+        }
+        parcel.writeString(lastUpdated);
+        parcel.writeString(dateAdded);
+        parcel.writeStringList(tags);
+    }
 }

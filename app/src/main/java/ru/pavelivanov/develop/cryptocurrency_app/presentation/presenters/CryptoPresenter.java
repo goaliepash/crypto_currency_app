@@ -1,20 +1,22 @@
 package ru.pavelivanov.develop.cryptocurrency_app.presentation.presenters;
 
 import java.lang.ref.WeakReference;
+import java.util.Objects;
 
 import retrofit2.Call;
 
-import ru.pavelivanov.develop.cryptocurrency_app.domain.remote.CryptoApi;
+import ru.pavelivanov.develop.cryptocurrency_app.data.pojo.quotes_latest_response.QuotesLatestResponse;
+import ru.pavelivanov.develop.cryptocurrency_app.domain.remote.Repository;
 import ru.pavelivanov.develop.cryptocurrency_app.domain.remote.callbacks.CryptoDataCallback;
 import ru.pavelivanov.develop.cryptocurrency_app.domain.remote.NetworkService;
-import ru.pavelivanov.develop.cryptocurrency_app.models.pojo.Data;
+import ru.pavelivanov.develop.cryptocurrency_app.data.pojo.listing_latest_response.ListingLatestResponse;
 import ru.pavelivanov.develop.cryptocurrency_app.presentation.ui.implementations.ICryptoView;
-import ru.pavelivanov.develop.cryptocurrency_app.models.utils.Constants;
+import ru.pavelivanov.develop.cryptocurrency_app.data.utils.Constants;
 
 public class CryptoPresenter {
 
     private WeakReference<ICryptoView> cryptoViewWeakReference;
-    private CryptoApi coinApi = NetworkService.getInstance().getJSONApi();
+    private Repository repository = new Repository(NetworkService.getInstance().getJSONApi());
 
     /**
      * Конструктор с одним параметром.
@@ -33,11 +35,13 @@ public class CryptoPresenter {
      * @param sort Параметр сортировки
      */
     public void loadCryptoData(int start, int limit, String sort) {
-        if (cryptoViewWeakReference.get() != null) {
+        ICryptoView cryptoView = cryptoViewWeakReference.get();
+
+        if (cryptoView != null) {
             cryptoViewWeakReference.get().showProgress();
         }
 
-        Call<Data> call = coinApi.getLatestQuotes(Constants.CMC_PRO_API_KEY, start, limit, sort);
-        call.enqueue(new CryptoDataCallback(cryptoViewWeakReference.get()));
+        Call<ListingLatestResponse> call = repository.getListingLatest(Constants.CMC_PRO_API_KEY, start, limit, sort);
+        call.enqueue(new CryptoDataCallback(Objects.requireNonNull(cryptoView)));
     }
 }

@@ -2,7 +2,9 @@ package ru.pavelivanov.develop.cryptocurrency_app.domain.remote;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import static ru.pavelivanov.develop.cryptocurrency_app.models.utils.Constants.BASE_URL;
+import ru.pavelivanov.develop.cryptocurrency_app.data.api.CryptoApi;
+
+import static ru.pavelivanov.develop.cryptocurrency_app.data.utils.Constants.BASE_URL;
 
 public class NetworkService {
 

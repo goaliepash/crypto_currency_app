@@ -57,6 +57,28 @@
             tools:text="@string/circulating_supply_string"
             style="@style/ItemCardTextStyle"/>
 
+        <RelativeLayout
+            android:id="@+id/percentage_change_24h_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/percentage_change_24h_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/percentage_change_24h_string"
+                style="@style/ItemCardTextStyle"/>
+
+            <ImageView
+                android:id="@+id/raise_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/percentage_change_24h_text_view"
+                android:contentDescription="@string/raise_string"
+                android:layout_marginStart="@dimen/raise_image_view_margin_start"/>
+
+        </RelativeLayout>
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

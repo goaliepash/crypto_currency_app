@@ -1,4 +1,4 @@
-package ru.pavelivanov.develop.cryptocurrency_app.presentation.ui;
+package ru.pavelivanov.develop.cryptocurrency_app.presentation.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,7 +17,7 @@ import java.util.List;
 import ru.pavelivanov.develop.cryptocurrency_app.R;
 import ru.pavelivanov.develop.cryptocurrency_app.domain.listeners.PaginationListener;
 import ru.pavelivanov.develop.cryptocurrency_app.presentation.adapters.CryptoRecyclerAdapter;
-import ru.pavelivanov.develop.cryptocurrency_app.models.pojo.Datum;
+import ru.pavelivanov.develop.cryptocurrency_app.data.pojo.listing_latest_response.Crypto;
 import ru.pavelivanov.develop.cryptocurrency_app.presentation.ui.implementations.ICryptoView;
 import ru.pavelivanov.develop.cryptocurrency_app.presentation.presenters.CryptoPresenter;
 
@@ -71,7 +71,7 @@ public class CryptoActivity extends AppCompatActivity implements ICryptoView, Sw
      * @param data Данные по криптовалютам
      */
     @Override
-    public void setCryptoCurrency(List<Datum> data) {
+    public void setCryptoCurrency(List<Crypto> data) {
 
         if (currentPage != PAGE_START) {
             cryptoAdapter.removeLoading();
@@ -107,16 +107,19 @@ public class CryptoActivity extends AppCompatActivity implements ICryptoView, Sw
         sortSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (adapterView.getSelectedItem().toString().equals(getString(R.string.market_cap))) {
+                String selectedItem = adapterView.getSelectedItem().toString();
+                if (selectedItem.equals(getString(R.string.market_cap))) {
                     sortMode = getString(R.string.market_cap);
-                } else if (adapterView.getSelectedItem().toString().equals(getString(R.string.name))) {
+                } else if (selectedItem.equals(getString(R.string.name))) {
                     sortMode = getString(R.string.name);
-                } else if (adapterView.getSelectedItem().toString().equals(getString(R.string.price))) {
+                } else if (selectedItem.equals(getString(R.string.price))) {
                     sortMode = getString(R.string.price);
-                } else if (adapterView.getSelectedItem().toString().equals(getString(R.string.volume_24h))) {
+                } else if (selectedItem.equals(getString(R.string.volume_24h))) {
                     sortMode = getString(R.string.volume_24h);
-                } else if (adapterView.getSelectedItem().toString().equals(getString(R.string.circulating_supply))) {
+                } else if (selectedItem.equals(getString(R.string.circulating_supply))) {
                     sortMode = getString(R.string.circulating_supply);
+                } else if (selectedItem.equals(getString(R.string.percent_change_24h))) {
+                    sortMode = getString(R.string.percent_change_24h);
                 }
                 onRefresh();
             }

@@ -4,6 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * Класс-слушатель для пагинации.
+ *
+ * @author Иванов Павел Александрович
+ */
 public abstract class PaginationListener extends RecyclerView.OnScrollListener {
 
     @NonNull
@@ -12,7 +17,9 @@ public abstract class PaginationListener extends RecyclerView.OnScrollListener {
     private static final int PAGE_SIZE = 5;
 
     /**
-     * Supporting only LinearLayoutManager for now.
+     * Конструктор с параметром.
+     *
+     * @param layoutManager layout-менеджер
      */
     public PaginationListener(@NonNull LinearLayoutManager layoutManager) {
         this.layoutManager = layoutManager;

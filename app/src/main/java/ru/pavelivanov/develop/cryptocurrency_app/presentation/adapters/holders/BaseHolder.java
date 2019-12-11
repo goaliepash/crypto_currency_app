@@ -5,7 +5,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import ru.pavelivanov.develop.cryptocurrency_app.models.pojo.Datum;
+import ru.pavelivanov.develop.cryptocurrency_app.data.pojo.listing_latest_response.Crypto;
 
 public abstract class BaseHolder extends RecyclerView.ViewHolder {
 
@@ -13,7 +13,7 @@ public abstract class BaseHolder extends RecyclerView.ViewHolder {
         super(itemView);
     }
 
-    public void onBind(Datum datum) {
+    public void onBind(Crypto crypto, int position) {
         clear();
     }
 

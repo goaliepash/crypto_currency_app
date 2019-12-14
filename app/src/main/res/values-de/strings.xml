@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kryptowährung Anführungszeichen</string>
+    <string name="asc_string">asc</string>
+    <string name="circulating_supply">circulating_supply</string>
+    <string name="circulating_supply_string">Zirkulares Angebot:\u0020</string>
+    <string name="circulating_supply_title">Zirkulares Angebot</string>
+    <string name="conversion_string">Umwandlung</string>
+    <string name="convert_string">Konvertieren</string>
+    <string name="desc_string">desc</string>
+    <string name="eur">EUR</string>
+    <string name="gbp">GBP</string>
+    <string name="cost_string">Kosten:\u0020</string>
+    <string name="crypto_currency_name_string">Name:\u0020</string>
+    <string name="date_added_string">Datum hinzugefügt:\u0020</string>
+    <string name="info_string">"Informationen "</string>
+    <string name="market_cap">market_cap</string>
+    <string name="market_cap_string">Kapitalisierung:\u0020</string>
+    <string name="market_cap_title">Kapitalisierung</string>
+    <string name="max_supply_string">Maximales Angebot:\u0020</string>
+    <string name="name">name</string>
+    <string name="name_title">Name</string>
+    <string name="percent_change_24h">percent_change_24h</string>
+    <string name="percent_change_24h_title">Prozentuale Veränderung (24)</string>
+    <string name="percentage_change_1h_string">% (1S):\u0020</string>
+    <string name="percentage_change_24h_string">% (24S):\u0020</string>
+    <string name="percentage_change_7d_string">% (7T):\u0020</string>
+    <string name="please_enter_amount_hint_string">Menge:</string>
+    <string name="price">price</string>
+    <string name="price_conversion_string">Preisumrechnung</string>
+    <string name="rub">RUB</string>
+    <string name="usd">USD</string>
+    <string name="volume_24h">volume_24h</string>
+    <string name="price_string">Preis:\u0020</string>
+    <string name="price_title">Preis</string>
+    <string name="raise_string">Erziehen</string>
+    <string name="rank_string">Rang</string>
+    <string name="search_string">Suche</string>
+    <string name="sort_by_string">Sortiere nach:</string>
+    <string name="sort_dir_content_description_string">Sortiere nach</string>
+    <string name="total_supply_string">Allgemeines Angebot:\u0020</string>
+    <string name="volume_24h_string">Volumen (24 S):\u0020</string>
+    <string name="volume_24h_title">Volumen (24 S)</string>
+</resources>

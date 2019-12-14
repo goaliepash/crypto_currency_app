@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Cryptocurrency quotes</string>
     <string name="rank_string">Rank:\u0020</string>
@@ -40,6 +41,8 @@
     <string name="sort_dir_content_description_string">Sort Dir</string>
     <string name="desc_string">desc</string>
     <string name="asc_string">asc</string>
+    <string name="info_string">Info</string>
+    <string name="conversion_string">Conversion</string>
 
     <string-array name="sort_by_array">
         <item>@string/market_cap_title</item>
@@ -55,5 +58,10 @@
         <item>@string/eur</item>
         <item>@string/gbp</item>
         <item>@string/rub</item>
+    </string-array>
+
+    <string-array name="tab_array">
+        <item>@string/info_string</item>
+        <item>@string/conversion_string</item>
     </string-array>
 </resources>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Котировки криптовалют</string>
+    <string name="rank_string">Позиция:\u0020</string>
+    <string name="crypto_currency_name_string">Название:\u0020</string>
+    <string name="market_cap_string">Капитализация:\u0020</string>
+    <string name="price_string">Стоимость:\u0020</string>
+    <string name="volume_24h_string">Объём за 24 часа:\u0020</string>
+    <string name="circulating_supply_string">Циркулирующее предложение:\u0020</string>
+    <string name="percentage_change_24h_string">% (24 часа):\u0020</string>
+    <string name="date_added_string">Дата добавления:\u0020</string>
+    <string name="max_supply_string">Максимальное предложение:\u0020</string>
+    <string name="search_string">Поиск</string>
+    <string name="sort_by_string">Сортировать:</string>
+    <string name="market_cap">market_cap</string>
+    <string name="name">name</string>
+    <string name="price">price</string>
+    <string name="volume_24h">volume_24h</string>
+    <string name="circulating_supply">circulating_supply</string>
+    <string name="percent_change_24h">percent_change_24h</string>
+
+    <string name="market_cap_title">Капитализация</string>
+    <string name="name_title">Название</string>
+    <string name="price_title">Стоимость</string>
+    <string name="volume_24h_title">Объём за 24 часа</string>
+    <string name="circulating_supply_title">Циркулирующее предложение</string>
+    <string name="percent_change_24h_title">Процентное изменение за 24 часа</string>
+
+    <string name="raise_string">Рост</string>
+    <string name="total_supply_string">Общее предложение:\u0020</string>
+    <string name="percentage_change_1h_string">% (1 час):\u0020</string>
+    <string name="percentage_change_7d_string">% (7 дней):\u0020</string>
+    <string name="price_conversion_string">Преобразование</string>
+    <string name="usd">USD</string>
+    <string name="eur">EUR</string>
+    <string name="gbp">GBP</string>
+    <string name="rub">RUB</string>
+    <string name="please_enter_amount_hint_string">Количество:</string>
+    <string name="cost_string">Цена:\u0020</string>
+    <string name="convert_string">Конвертировать</string>
+    <string name="sort_dir_content_description_string">Сортировать по</string>
+    <string name="desc_string">desc</string>
+    <string name="asc_string">asc</string>
+    <string name="info_string">Информация</string>
+    <string name="conversion_string">Конверсия</string>
+
+    <string-array name="sort_by_array">
+        <item>@string/market_cap_title</item>
+        <item>@string/name_title</item>
+        <item>@string/price_title</item>
+        <item>@string/volume_24h_title</item>
+        <item>@string/circulating_supply_title</item>
+        <item>@string/percent_change_24h_title</item>
+    </string-array>
+
+    <string-array name="currency_array">
+        <item>@string/usd</item>
+        <item>@string/eur</item>
+        <item>@string/gbp</item>
+        <item>@string/rub</item>
+    </string-array>
+
+    <string-array name="tab_array">
+        <item>@string/info_string</item>
+        <item>@string/conversion_string</item>
+    </string-array>
+</resources>

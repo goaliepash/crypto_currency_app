@@ -46,7 +46,7 @@ public class TabFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tab, container, false);
         ViewPager viewPager = view.findViewById(R.id.viewpager);
 
-        SampleFragmentPagerAdapter adapter = new SampleFragmentPagerAdapter(getChildFragmentManager(), crypto);
+        SampleFragmentPagerAdapter adapter = new SampleFragmentPagerAdapter(getChildFragmentManager(), getContext(), crypto);
         viewPager.setAdapter(adapter);
 
         TabLayout tabLayout = view.findViewById(R.id.sliding_tabs);

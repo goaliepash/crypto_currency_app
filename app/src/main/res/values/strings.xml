@@ -17,6 +17,14 @@
     <string name="volume_24h">volume_24h</string>
     <string name="circulating_supply">circulating_supply</string>
     <string name="percent_change_24h">percent_change_24h</string>
+
+    <string name="market_cap_title">Market Cap</string>
+    <string name="name_title">Name</string>
+    <string name="price_title">Price</string>
+    <string name="volume_24h_title">Volume (24h)</string>
+    <string name="circulating_supply_title">Circulating Supply</string>
+    <string name="percent_change_24h_title">Percent Change (24h)</string>
+
     <string name="raise_string">Raise</string>
     <string name="total_supply_string">Total Supply:\u0020</string>
     <string name="percentage_change_1h_string">% (1h):\u0020</string>
@@ -29,14 +37,17 @@
     <string name="please_enter_amount_hint_string">Please, enter amount:</string>
     <string name="cost_string">Cost:\u0020</string>
     <string name="convert_string">Convert</string>
+    <string name="sort_dir_content_description_string">Sort Dir</string>
+    <string name="desc_string">desc</string>
+    <string name="asc_string">asc</string>
 
     <string-array name="sort_by_array">
-        <item>@string/market_cap</item>
-        <item>@string/name</item>
-        <item>@string/price</item>
-        <item>@string/volume_24h</item>
-        <item>@string/circulating_supply</item>
-        <item>@string/percent_change_24h</item>
+        <item>@string/market_cap_title</item>
+        <item>@string/name_title</item>
+        <item>@string/price_title</item>
+        <item>@string/volume_24h_title</item>
+        <item>@string/circulating_supply_title</item>
+        <item>@string/percent_change_24h_title</item>
     </string-array>
 
     <string-array name="currency_array">

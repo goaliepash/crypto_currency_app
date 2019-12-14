@@ -71,10 +71,12 @@ public class CryptoViewHolder extends BaseHolder {
                 : context.getString(R.string.percentage_change_24h_string);
         percentageChange24hTextView.setText(percentageChange24h);
 
-        if (crypto.quote.uSD.percentChange24h.compareTo(new BigDecimal(0)) < 0) {
-            raiseImageView.setImageResource(R.drawable.ic_arrow_downward_red_24dp);
-        } else {
-            raiseImageView.setImageResource(R.drawable.ic_arrow_upward_green_24dp);
+        if (crypto.quote.uSD.percentChange24h != null) {
+            if (crypto.quote.uSD.percentChange24h.compareTo(new BigDecimal(0)) < 0) {
+                raiseImageView.setImageResource(R.drawable.ic_arrow_downward_red_24dp);
+            } else {
+                raiseImageView.setImageResource(R.drawable.ic_arrow_upward_green_24dp);
+            }
         }
     }
 

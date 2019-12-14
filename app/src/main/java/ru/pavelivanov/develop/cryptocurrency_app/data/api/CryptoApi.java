@@ -27,7 +27,8 @@ public interface CryptoApi {
             @Query("CMC_PRO_API_KEY") String apiKey,
             @Query("start") int start,
             @Query("limit") int limit,
-            @Query("sort") String sort);
+            @Query("sort") String sort,
+            @Query("sort_dir") String sortDir);
 
     /**
      * Конвертировать сумму криптовалюты в другую валюту.

@@ -8,26 +8,38 @@
     android:orientation="vertical"
     tools:context=".presentation.ui.activities.CryptoActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/sort_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_margin="@dimen/sort_layout_default_margin">
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/sort_by_text_view"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sort_by_string"
-            android:layout_weight="3" />
+            android:textSize="@dimen/sort_by_text_size"
+            android:text="@string/sort_by_string" />
 
         <Spinner
             android:id="@+id/sort_spinner"
+            android:layout_marginStart="@dimen/spinner_margin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_toEndOf="@id/sort_by_text_view"
+            android:layout_toStartOf="@id/sort_dir_image_button" />
 
-    </LinearLayout>
+        <ImageButton
+            android:id="@+id/sort_dir_image_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_downward_24dp"
+            android:tag="@string/desc_string"
+            android:background="#00000000"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@string/sort_dir_content_description_string" />
+
+    </RelativeLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/crypto_swipe_refresh_layout"

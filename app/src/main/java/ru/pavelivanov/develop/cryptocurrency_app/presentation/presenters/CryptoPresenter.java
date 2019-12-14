@@ -33,14 +33,14 @@ public class CryptoPresenter {
      * @param limit Сколько элементов данных получить
      * @param sort Параметр сортировки
      */
-    public void loadCryptoData(int start, int limit, String sort) {
+    public void loadCryptoData(int start, int limit, String sort, String sortDir) {
         ICryptoView cryptoView = cryptoViewWeakReference.get();
 
         if (cryptoView != null) {
             cryptoViewWeakReference.get().showProgress();
         }
 
-        Call<ListingLatestResponse> call = repository.getListingLatest(Constants.CMC_PRO_API_KEY, start, limit, sort);
+        Call<ListingLatestResponse> call = repository.getListingLatest(Constants.CMC_PRO_API_KEY, start, limit, sort, sortDir);
         call.enqueue(new CryptoDataCallback(Objects.requireNonNull(cryptoView)));
     }
 }

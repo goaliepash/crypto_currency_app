@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
@@ -26,6 +27,7 @@ import static ru.pavelivanov.develop.cryptocurrency_app.domain.listeners.Paginat
 public class CryptoActivity extends AppCompatActivity implements ICryptoView, SwipeRefreshLayout.OnRefreshListener{
 
     private Spinner sortSpinner;
+    private ImageButton sortDirImageButton;
     private RelativeLayout progressRelativeLayout;
     private SwipeRefreshLayout cryptoSwipeRefreshLayout;
     private CryptoPresenter cryptoPresenter;
@@ -37,6 +39,7 @@ public class CryptoActivity extends AppCompatActivity implements ICryptoView, Sw
     private static final int TOTAL_PAGE = 5000;
     private boolean isLoading = false;
     private String sortMode;
+    private String sortDir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,11 +94,12 @@ public class CryptoActivity extends AppCompatActivity implements ICryptoView, Sw
         currentPage = PAGE_START;
         isLastPage = false;
         cryptoAdapter.clear();
-        cryptoPresenter.loadCryptoData(currentPage, INCREMENT, sortMode);
+        cryptoPresenter.loadCryptoData(currentPage, INCREMENT, sortMode, sortDir);
     }
 
     private void initView() {
         initSpinner();
+        initSortDirButton();
         initRecyclerView();
         initCryptoSwipeRefreshLayout();
         initProgressRelativeLayout();
@@ -112,17 +116,17 @@ public class CryptoActivity extends AppCompatActivity implements ICryptoView, Sw
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String selectedItem = adapterView.getSelectedItem().toString();
-                if (selectedItem.equals(getString(R.string.market_cap))) {
+                if (selectedItem.equals(getString(R.string.market_cap_title))) {
                     sortMode = getString(R.string.market_cap);
-                } else if (selectedItem.equals(getString(R.string.name))) {
+                } else if (selectedItem.equals(getString(R.string.name_title))) {
                     sortMode = getString(R.string.name);
-                } else if (selectedItem.equals(getString(R.string.price))) {
+                } else if (selectedItem.equals(getString(R.string.price_title))) {
                     sortMode = getString(R.string.price);
-                } else if (selectedItem.equals(getString(R.string.volume_24h))) {
+                } else if (selectedItem.equals(getString(R.string.volume_24h_title))) {
                     sortMode = getString(R.string.volume_24h);
-                } else if (selectedItem.equals(getString(R.string.circulating_supply))) {
+                } else if (selectedItem.equals(getString(R.string.circulating_supply_title))) {
                     sortMode = getString(R.string.circulating_supply);
-                } else if (selectedItem.equals(getString(R.string.percent_change_24h))) {
+                } else if (selectedItem.equals(getString(R.string.percent_change_24h_title))) {
                     sortMode = getString(R.string.percent_change_24h);
                 }
                 onRefresh();
@@ -131,6 +135,25 @@ public class CryptoActivity extends AppCompatActivity implements ICryptoView, Sw
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
+            }
+        });
+    }
+
+    private void initSortDirButton() {
+        sortDirImageButton = findViewById(R.id.sort_dir_image_button);
+        sortDir = sortDirImageButton.getTag().toString();
+        sortDirImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (sortDirImageButton.getTag().equals(getString(R.string.desc_string))) {
+                    sortDirImageButton.setImageResource(R.drawable.ic_arrow_upward_24dp);
+                    sortDirImageButton.setTag(getString(R.string.asc_string));
+                } else {
+                    sortDirImageButton.setImageResource(R.drawable.ic_arrow_downward_24dp);
+                    sortDirImageButton.setTag(getString(R.string.desc_string));
+                }
+                sortDir = sortDirImageButton.getTag().toString();
+                onRefresh();
             }
         });
     }
@@ -146,7 +169,7 @@ public class CryptoActivity extends AppCompatActivity implements ICryptoView, Sw
             protected void loadMoreItems() {
                 isLoading = true;
                 currentPage += INCREMENT;
-                cryptoPresenter.loadCryptoData(currentPage, INCREMENT, sortMode);
+                cryptoPresenter.loadCryptoData(currentPage, INCREMENT, sortMode, sortDir);
             }
 
             @Override

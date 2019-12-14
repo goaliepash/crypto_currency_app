@@ -13,8 +13,8 @@ public class Repository {
         this.api = api;
     }
 
-    public Call<ListingLatestResponse> getListingLatest(String apiKey, int start, int limit, String sort) {
-        return api.getListingLatest(apiKey, start, limit, sort);
+    public Call<ListingLatestResponse> getListingLatest(String apiKey, int start, int limit, String sort, String sortDir) {
+        return api.getListingLatest(apiKey, start, limit, sort, sortDir);
     }
 
     public Call<PriceConversionResponse> getPriceConversion(String apiKey, int id, double amount, String convert) {

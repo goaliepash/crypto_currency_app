@@ -5,7 +5,6 @@ import java.util.Objects;
 
 import retrofit2.Call;
 
-import ru.pavelivanov.develop.cryptocurrency_app.data.pojo.quotes_latest_response.QuotesLatestResponse;
 import ru.pavelivanov.develop.cryptocurrency_app.domain.remote.Repository;
 import ru.pavelivanov.develop.cryptocurrency_app.domain.remote.callbacks.CryptoDataCallback;
 import ru.pavelivanov.develop.cryptocurrency_app.domain.remote.NetworkService;

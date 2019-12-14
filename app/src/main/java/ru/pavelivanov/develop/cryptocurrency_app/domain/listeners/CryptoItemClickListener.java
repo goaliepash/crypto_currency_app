@@ -6,7 +6,7 @@ import android.view.View;
 import ru.pavelivanov.develop.cryptocurrency_app.R;
 import ru.pavelivanov.develop.cryptocurrency_app.data.pojo.listing_latest_response.Crypto;
 import ru.pavelivanov.develop.cryptocurrency_app.presentation.ui.activities.CryptoActivity;
-import ru.pavelivanov.develop.cryptocurrency_app.presentation.ui.fragments.InfoFragment;
+import ru.pavelivanov.develop.cryptocurrency_app.presentation.ui.fragments.TabFragment;
 
 /**
  * Класс-слушатель для клика по элементу списка котировок криптовалют.
@@ -35,7 +35,7 @@ public class CryptoItemClickListener implements View.OnClickListener {
                 .getSupportFragmentManager()
                 .beginTransaction()
                 .addToBackStack(null)
-                .add(R.id.activity_crypto_layout, InfoFragment.newInstance(crypto))
+                .replace(R.id.activity_crypto_layout, TabFragment.newInstance(crypto))
                 .commit();
     }
 }

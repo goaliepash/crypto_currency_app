@@ -1,7 +1,6 @@
 package ru.pavelivanov.develop.cryptocurrency_app.data.utils;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -10,7 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
-import ru.pavelivanov.develop.cryptocurrency_app.R;
 import ru.pavelivanov.develop.cryptocurrency_app.data.pojo.listing_latest_response.Crypto;
 
 /**
@@ -34,13 +32,11 @@ public class CryptoConverter {
      * Получить имя криптовалюты с его символом в скобках.
      * Нужно для фрагмента с подробной информацией о выбранной котировке.
      *
-     * @param context Контекст
      * @param value Выбранная котировка
      * @return Строковое представление имение в заданном формате
      */
-    public static String getCryptoName(Context context, Crypto value) {
-        return context.getString(R.string.crypto_currency_name_string) +
-                value.name +
+    public static String getCryptoName(Crypto value) {
+        return value.name +
                 " (" +
                 value.symbol +
                 ")";
@@ -50,13 +46,12 @@ public class CryptoConverter {
      * Получить дату добавления выбранной котировки на CoinMarketCap.
      * Нужно для фрагмента с подробной информацией о выбранной котировке.
      *
-     * @param context Контекст
      * @param value Строковое представление даты
      * @return Строковое представление даты в необходимом формате
      */
-    public static String getDateAdded(Context context, String value) {
+    public static String getDateAdded(String value) {
         if (value == null) {
-            return context.getString(R.string.date_added_string);
+            return "";
         }
         @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date date = null;
@@ -65,6 +60,6 @@ public class CryptoConverter {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return context.getString(R.string.date_added_string) + formatter.format(Objects.requireNonNull(date));
+        return formatter.format(Objects.requireNonNull(date));
     }
 }

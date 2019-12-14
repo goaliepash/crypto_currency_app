@@ -62,39 +62,39 @@ public class InfoFragment extends Fragment {
 
     private void initView(View view) {
         nameTextView = view.findViewById(R.id.name_text_view);
-        nameTextView.setText(CryptoConverter.getCryptoName(Objects.requireNonNull(getContext()), crypto));
+        nameTextView.setText(CryptoConverter.getCryptoName(crypto));
 
         dateAddedTextView = view.findViewById(R.id.date_added_text_view);
-        dateAddedTextView.setText(CryptoConverter.getDateAdded(getContext(), crypto.dateAdded));
+        dateAddedTextView.setText(CryptoConverter.getDateAdded(crypto.dateAdded));
 
         maxSupplyTextView = view.findViewById(R.id.max_supply_text_view);
         String maxSupplyText = (crypto.maxSupply != null)
-                ? getString(R.string.max_supply_string) + CryptoConverter.getStringValue(crypto.maxSupply)
-                : getString(R.string.max_supply_string);
+                ? CryptoConverter.getStringValue(crypto.maxSupply)
+                : "";
         maxSupplyTextView.setText(maxSupplyText);
 
         totalSupplyTextView = view.findViewById(R.id.total_supply_text_view);
         String totalSupplyText = (crypto.totalSupply != null)
-                ? getString(R.string.total_supply_string) + CryptoConverter.getStringValue(crypto.totalSupply)
-                : getString(R.string.total_supply_string);
+                ? CryptoConverter.getStringValue(crypto.totalSupply)
+                : "";
         totalSupplyTextView.setText(totalSupplyText);
 
         priceTextView = view.findViewById(R.id.price_text_view);
         String priceText = (crypto.quote.uSD.price != null)
-                ? getString(R.string.price_string) + CryptoConverter.getStringValue(crypto.quote.uSD.price)
-                : getString(R.string.price_string);
+                ? CryptoConverter.getStringValue(crypto.quote.uSD.price)
+                : "";
         priceTextView.setText(priceText);
 
         volume24hTextView = view.findViewById(R.id.volume_24h_text_view);
         String volume24hText = (crypto.quote.uSD.volume24h != null)
-                ? getString(R.string.volume_24h_string) + CryptoConverter.getStringValue(crypto.quote.uSD.volume24h)
-                : getString(R.string.volume_24h_string);
+                ? CryptoConverter.getStringValue(crypto.quote.uSD.volume24h)
+                : "";
         volume24hTextView.setText(volume24hText);
 
         percentageChange1hTextView = view.findViewById(R.id.percentage_change_1h_text_view);
         String percentageChange1hText = (crypto.quote.uSD.percentChange1h != null)
-                ? getString(R.string.percentage_change_1h_string) + crypto.quote.uSD.percentChange1h
-                : getString(R.string.percentage_change_1h_string);
+                ? crypto.quote.uSD.percentChange1h.toString()
+                : "";
         percentageChange1hTextView.setText(percentageChange1hText);
 
         percentageChange1hImageView = view.findViewById(R.id.percentage_change_1h_image_view);
@@ -106,8 +106,8 @@ public class InfoFragment extends Fragment {
 
         percentageChange24hTextView = view.findViewById(R.id.percentage_change_24h_text_view);
         String percentageChange24hText = (crypto.quote.uSD.percentChange24h != null)
-                ? getString(R.string.percentage_change_24h_string) + crypto.quote.uSD.percentChange24h
-                : getString(R.string.percentage_change_24h_string);
+                ? crypto.quote.uSD.percentChange24h.toString()
+                : "";
         percentageChange24hTextView.setText(percentageChange24hText);
 
         percentageChange24hImageView = view.findViewById(R.id.percentage_change_24h_image_view);
@@ -119,8 +119,8 @@ public class InfoFragment extends Fragment {
 
         percentageChange7dTextView = view.findViewById(R.id.percentage_change_7d_text_view);
         String percentageChange7dText = (crypto.quote.uSD.percentChange7d != null)
-                ? getString(R.string.percentage_change_7d_string) + crypto.quote.uSD.percentChange7d
-                : getString(R.string.percentage_change_7d_string);
+                ? crypto.quote.uSD.percentChange7d.toString()
+                : "";
         percentageChange7dTextView.setText(percentageChange7dText);
 
         percentageChange7dImageView = view.findViewById(R.id.percentage_change_7d_image_view);
@@ -132,8 +132,8 @@ public class InfoFragment extends Fragment {
 
         marketCapTextView = view.findViewById(R.id.market_cap_text_view);
         String marketCapText = (crypto.quote.uSD.marketCap != null)
-                ? getString(R.string.market_cap_string) + CryptoConverter.getStringValue(crypto.quote.uSD.marketCap)
-                : getString(R.string.market_cap_string);
+                ? CryptoConverter.getStringValue(crypto.quote.uSD.marketCap)
+                : "";
         marketCapTextView.setText(marketCapText);
     }
 }

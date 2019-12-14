@@ -33,7 +33,7 @@ public class CryptoActivity extends AppCompatActivity implements ICryptoView, Sw
     private CryptoRecyclerAdapter cryptoAdapter;
     private int currentPage = PAGE_START;
     private boolean isLastPage = false;
-    private static final int INCREMENT = 10;
+    private static final int INCREMENT = 20;
     private static final int TOTAL_PAGE = 5000;
     private boolean isLoading = false;
     private String sortMode;
@@ -42,11 +42,7 @@ public class CryptoActivity extends AppCompatActivity implements ICryptoView, Sw
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crypto);
-        initSpinner();
-        initRecyclerView();
-        initCryptoSwipeRefreshLayout();
-        initProgressRelativeLayout();
-        initPresenter();
+        initView();
     }
 
     /**
@@ -96,6 +92,14 @@ public class CryptoActivity extends AppCompatActivity implements ICryptoView, Sw
         isLastPage = false;
         cryptoAdapter.clear();
         cryptoPresenter.loadCryptoData(currentPage, INCREMENT, sortMode);
+    }
+
+    private void initView() {
+        initSpinner();
+        initRecyclerView();
+        initCryptoSwipeRefreshLayout();
+        initProgressRelativeLayout();
+        initPresenter();
     }
 
     private void initSpinner() {

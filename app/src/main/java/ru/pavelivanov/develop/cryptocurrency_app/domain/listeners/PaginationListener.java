@@ -14,7 +14,7 @@ public abstract class PaginationListener extends RecyclerView.OnScrollListener {
     @NonNull
     private LinearLayoutManager layoutManager;
     public static final int PAGE_START = 1;
-    private static final int PAGE_SIZE = 5;
+    private static final int PAGE_SIZE = 20;
 
     /**
      * Конструктор с параметром.

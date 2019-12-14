@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/crypto_info_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".presentation.ui.fragments.ConversionFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/fragment_conversion_padding">
+
+        <RelativeLayout
+            android:id="@+id/name_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/conversion_margin_bottom_default">
+
+            <TextView
+                android:id="@+id/name_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/crypto_currency_name_string"
+                style="@style/InfoTextStyle" />
+
+            <TextView
+                android:id="@+id/name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/name_title_text_view"
+                style="@style/InfoTextStyle" />
+
+        </RelativeLayout>
+
+        <Spinner
+            android:id="@+id/currency_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/conversion_margin_bottom_default" />
+
+        <EditText
+            android:id="@+id/amount_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/please_enter_amount_hint_string"
+            android:layout_marginBottom="@dimen/conversion_margin_bottom_default"
+            android:inputType="numberDecimal" />
+
+        <Button
+            android:id="@+id/convert_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/conversion_margin_bottom_default"
+            android:background="@color/colorAccent"
+            android:enabled="false"
+            android:text="@string/convert_string" />
+
+        <RelativeLayout
+            android:id="@+id/cost_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/conversion_margin_bottom_default">
+
+            <TextView
+                android:id="@+id/cost_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cost_string"
+                style="@style/InfoTextStyle" />
+
+            <TextView
+                android:id="@+id/cost_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/cost_title_text_view"
+                style="@style/InfoTextStyle" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/progress_relative_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:id="@+id/crypto_progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>

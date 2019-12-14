@@ -8,4 +8,7 @@
     <dimen name="raise_image_view_margin_start">8dp</dimen>
     <dimen name="fragment_info_padding">16dp</dimen>
     <dimen name="info_margin_bottom_default">8dp</dimen>
+    <dimen name="margin_top_conversion_button">20dp</dimen>
+    <dimen name="fragment_conversion_padding">16dp</dimen>
+    <dimen name="conversion_margin_bottom_default">20dp</dimen>
 </resources>

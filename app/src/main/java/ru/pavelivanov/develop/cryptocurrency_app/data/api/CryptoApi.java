@@ -4,6 +4,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import ru.pavelivanov.develop.cryptocurrency_app.data.pojo.listing_latest_response.ListingLatestResponse;
+import ru.pavelivanov.develop.cryptocurrency_app.data.pojo.price_conversion_response.PriceConversionResponse;
 
 /**
  * Интерфейс для работы с CoinMarketCap API.
@@ -27,4 +28,17 @@ public interface CryptoApi {
             @Query("start") int start,
             @Query("limit") int limit,
             @Query("sort") String sort);
+
+    /**
+     * Конвертировать сумму криптовалюты в другую валюту.
+     *
+     *
+     */
+    @GET("/v1/tools/price-conversion")
+    Call<PriceConversionResponse> getPriceConversion(
+            @Query("CMC_PRO_API_KEY") String apiKey,
+            @Query("id") int id,
+            @Query("amount") double amount,
+            @Query("convert") String convert
+    );
 }

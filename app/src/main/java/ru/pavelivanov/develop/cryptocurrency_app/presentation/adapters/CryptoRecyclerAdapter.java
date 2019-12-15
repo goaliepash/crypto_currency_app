@@ -66,17 +66,28 @@ public class CryptoRecyclerAdapter extends Adapter<BaseHolder> {
         return data == null ? 0 : data.size();
     }
 
+    /**
+     * Добавить элементы в список криптовалюты.
+     *
+     * @param dataList список добавляемых элементов.
+     */
     public void addItems(List<Crypto> dataList) {
         data.addAll(dataList);
         notifyDataSetChanged();
     }
 
+    /**
+     * Добавить элемент заглушки для отображения ProgressBar.
+     */
     public void addLoading() {
         isLoaderVisible = true;
         data.add(new Crypto());
         notifyItemInserted(data.size() - 1);
     }
 
+    /**
+     * Удалить элемент из списка.
+     */
     public void removeLoading() {
         isLoaderVisible = false;
         int position = data.size() - 1;
@@ -87,6 +98,9 @@ public class CryptoRecyclerAdapter extends Adapter<BaseHolder> {
         }
     }
 
+    /**
+     * Очистить список криптовалюты.
+     */
     public void clear() {
         data.clear();
         notifyDataSetChanged();

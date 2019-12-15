@@ -31,9 +31,13 @@ public interface CryptoApi {
             @Query("sort_dir") String sortDir);
 
     /**
-     * Конвертировать сумму криптовалюты в другую валюту.
+     * Получить конвертированную стоимость.
      *
-     *
+     * @param apiKey API-ключ
+     * @param id ID криптовалюты
+     * @param amount количество
+     * @param convert выбранная валюта
+     * @return ответ от web-сервиса
      */
     @GET("/v1/tools/price-conversion")
     Call<PriceConversionResponse> getPriceConversion(

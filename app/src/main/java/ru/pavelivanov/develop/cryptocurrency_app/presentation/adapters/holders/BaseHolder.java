@@ -13,9 +13,13 @@ public abstract class BaseHolder extends RecyclerView.ViewHolder {
         super(itemView);
     }
 
+    /**
+     * Инициализировать view-элементы.
+     *
+     * @param crypto данные элемента криптовалюты
+     * @param position позиция криптовалюты в списке
+     */
     public void onBind(Crypto crypto, int position) {
-        clear();
-    }
 
-    protected abstract void clear();
+    }
 }

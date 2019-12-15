@@ -1,7 +1,5 @@
 package ru.pavelivanov.develop.cryptocurrency_app.presentation.ui.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -46,7 +44,7 @@ public class TabFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tab, container, false);
         ViewPager viewPager = view.findViewById(R.id.viewpager);
 
-        SampleFragmentPagerAdapter adapter = new SampleFragmentPagerAdapter(getChildFragmentManager(), getContext(), crypto);
+        SampleFragmentPagerAdapter adapter = new SampleFragmentPagerAdapter(getChildFragmentManager(), Objects.requireNonNull(getContext()), crypto);
         viewPager.setAdapter(adapter);
 
         TabLayout tabLayout = view.findViewById(R.id.sliding_tabs);

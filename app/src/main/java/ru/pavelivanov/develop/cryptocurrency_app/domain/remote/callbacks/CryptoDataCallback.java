@@ -7,6 +7,10 @@ import retrofit2.Response;
 import ru.pavelivanov.develop.cryptocurrency_app.presentation.ui.implementations.ICryptoView;
 import ru.pavelivanov.develop.cryptocurrency_app.data.pojo.listing_latest_response.ListingLatestResponse;
 
+/**
+ * Коллбэк для получения ответа от web-сервиса.
+ * Получает список котировок криптовалют.
+ */
 public class CryptoDataCallback implements Callback<ListingLatestResponse> {
 
     private WeakReference<ICryptoView> cryptoViewWeakReference;

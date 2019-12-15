@@ -8,6 +8,10 @@ import retrofit2.Response;
 import ru.pavelivanov.develop.cryptocurrency_app.data.pojo.price_conversion_response.PriceConversionResponse;
 import ru.pavelivanov.develop.cryptocurrency_app.presentation.ui.implementations.IConversionView;
 
+/**
+ * Коллбэк для получения ответа от web-сервиса.
+ * Получает конвертированную стоимость.
+ */
 public class ConversionCallback implements Callback<PriceConversionResponse> {
 
     private WeakReference<IConversionView> conversionViewWeakReference;

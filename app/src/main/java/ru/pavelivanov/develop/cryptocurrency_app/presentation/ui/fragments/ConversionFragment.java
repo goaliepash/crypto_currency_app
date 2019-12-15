@@ -77,16 +77,27 @@ public class ConversionFragment extends Fragment implements IConversionView {
         }
     }
 
+    /**
+     * Показать загрузку.
+     */
     @Override
     public void showProgress() {
         progressRelativeLayout.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * Скрыть загрузку.
+     */
     @Override
     public void hideProgress() {
         progressRelativeLayout.setVisibility(View.GONE);
     }
 
+    /**
+     * Получить конвертированную стоимость.
+     *
+     * @param data данные
+     */
     @Override
     public void setCost(Data data) {
         String selectedItem = currencySpinner.getSelectedItem().toString();

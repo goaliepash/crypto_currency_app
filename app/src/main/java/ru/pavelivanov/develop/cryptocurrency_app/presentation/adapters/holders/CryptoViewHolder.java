@@ -39,6 +39,12 @@ public class CryptoViewHolder extends BaseHolder {
         raiseImageView = itemView.findViewById(R.id.raise_image_view);
     }
 
+    /**
+     * Инициализировать view-элементы
+     *
+     * @param crypto данные элемента криптовалюты
+     * @param position позиция криптовалюты в списке
+     */
     public void onBind(Crypto crypto, int position) {
         String cryptoCurrencyName = context.getString(R.string.crypto_currency_name_string) + crypto.name;
         cryptoCurrencyNameTextView.setText(cryptoCurrencyName);
@@ -78,10 +84,5 @@ public class CryptoViewHolder extends BaseHolder {
                 raiseImageView.setImageResource(R.drawable.ic_arrow_upward_green_24dp);
             }
         }
-    }
-
-    @Override
-    protected void clear() {
-
     }
 }

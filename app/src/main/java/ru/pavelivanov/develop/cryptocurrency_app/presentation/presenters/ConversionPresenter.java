@@ -21,6 +21,13 @@ public class ConversionPresenter {
         this.conversionViewWeakReference = new WeakReference<>(conversionView);
     }
 
+    /**
+     * Получить конвертацию криптовалюты в выбранной валюте.
+     *
+     * @param id ID криптовалюты
+     * @param amount количество
+     * @param convert выбранная валюта
+     */
     public void convertCryptoCurrency(int id, double amount, String convert) {
         IConversionView conversionView = conversionViewWeakReference.get();
 

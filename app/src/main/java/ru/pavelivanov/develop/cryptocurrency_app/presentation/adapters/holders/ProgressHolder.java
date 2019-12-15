@@ -15,9 +15,4 @@ public class ProgressHolder extends BaseHolder {
         super(itemView);
         progressBar = itemView.findViewById(R.id.progress_bar);
     }
-
-    @Override
-    protected void clear() {
-
-    }
 }

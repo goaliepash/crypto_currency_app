@@ -3,7 +3,7 @@ package ru.pavelivanov.develop.cryptocurrency_app.data.utils;
 import android.annotation.SuppressLint;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,10 +22,11 @@ public class CryptoConverter {
      * Получить строковое представление числа BigDecimal c 2-мя знаками после запятой.
      *
      * @param value входное значение
+     * @param moneyFormat денеженый формат
      * @return полученное строковое представление
      */
-    public static String getStringValue(BigDecimal value) {
-        return value.setScale(2, RoundingMode.UP).toString();
+    public static String getStringValue(BigDecimal value, NumberFormat moneyFormat) {
+        return moneyFormat.format(value);
     }
 
     /**
@@ -60,6 +61,7 @@ public class CryptoConverter {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return formatter.format(Objects.requireNonNull(date));
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat newFormatter = new SimpleDateFormat("dd.MM.yyyy");
+        return newFormatter.format(Objects.requireNonNull(date));
     }
 }

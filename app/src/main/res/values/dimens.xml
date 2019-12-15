@@ -13,4 +13,5 @@
     <dimen name="conversion_margin_bottom_default">20dp</dimen>
     <dimen name="spinner_margin">4dp</dimen>
     <dimen name="sort_by_text_size">16sp</dimen>
+    <dimen name="margin_end_text_view">4dp</dimen>
 </resources>

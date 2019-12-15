@@ -1,6 +1,5 @@
 package ru.pavelivanov.develop.cryptocurrency_app.presentation.adapters.holders;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -8,7 +7,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 import ru.pavelivanov.develop.cryptocurrency_app.R;
 import ru.pavelivanov.develop.cryptocurrency_app.data.pojo.listing_latest_response.Crypto;
@@ -16,7 +16,6 @@ import ru.pavelivanov.develop.cryptocurrency_app.data.utils.CryptoConverter;
 
 public class CryptoViewHolder extends BaseHolder {
 
-    private Context context;
     private TextView rankTextView;
     private TextView cryptoCurrencyNameTextView;
     private TextView marketCapTextView;
@@ -25,10 +24,10 @@ public class CryptoViewHolder extends BaseHolder {
     private TextView circulatingSupplyTextView;
     private TextView percentageChange24hTextView;
     private ImageView raiseImageView;
+    private NumberFormat moneyFormat = NumberFormat.getCurrencyInstance(Locale.US);
 
-    public CryptoViewHolder(@NonNull View itemView, Context context) {
+    public CryptoViewHolder(@NonNull View itemView) {
         super(itemView);
-        this.context = context;
         rankTextView = itemView.findViewById(R.id.rank_text_view);
         cryptoCurrencyNameTextView = itemView.findViewById(R.id.crypto_currency_name_text_view);
         marketCapTextView = itemView.findViewById(R.id.market_cap_text_view);
@@ -46,35 +45,36 @@ public class CryptoViewHolder extends BaseHolder {
      * @param position позиция криптовалюты в списке
      */
     public void onBind(Crypto crypto, int position) {
-        String cryptoCurrencyName = context.getString(R.string.crypto_currency_name_string) + crypto.name;
+        String cryptoCurrencyName = crypto.name;
         cryptoCurrencyNameTextView.setText(cryptoCurrencyName);
 
-        String rank = context.getString(R.string.rank_string) + position;
+        String rank = String.valueOf(position);
         rankTextView.setText(rank);
 
+
         String marketCap = (crypto.quote.uSD.marketCap != null)
-                ? context.getString(R.string.market_cap_string) + CryptoConverter.getStringValue(crypto.quote.uSD.marketCap)
-                : context.getString(R.string.market_cap_string);
+                ? CryptoConverter.getStringValue(crypto.quote.uSD.marketCap, moneyFormat)
+                : "";
         marketCapTextView.setText(marketCap);
 
         String price = (crypto.quote.uSD.price != null)
-                ? context.getString(R.string.price_string) + CryptoConverter.getStringValue(crypto.quote.uSD.price)
-                : context.getString(R.string.price_string);
+                ? CryptoConverter.getStringValue(crypto.quote.uSD.price, moneyFormat)
+                : "";
         priceTextView.setText(price);
 
         String volume24h = (crypto.quote.uSD.volume24h != null)
-                ? context.getString(R.string.volume_24h_string) + CryptoConverter.getStringValue(crypto.quote.uSD.volume24h)
-                : context.getString(R.string.volume_24h_string);
+                ? CryptoConverter.getStringValue(crypto.quote.uSD.volume24h, moneyFormat)
+                : "";
         volume24hTextView.setText(volume24h);
 
         String circulatingSupply = (crypto.circulatingSupply != null)
-                ? context.getString(R.string.circulating_supply_string) + CryptoConverter.getStringValue(crypto.circulatingSupply.setScale(2, RoundingMode.UP))
-                : context.getString(R.string.circulating_supply_string);
+                ? CryptoConverter.getStringValue(crypto.circulatingSupply, moneyFormat)
+                : "";
         circulatingSupplyTextView.setText(circulatingSupply);
 
         String percentageChange24h = (crypto.quote.uSD.percentChange24h != null)
-                ? context.getString(R.string.percentage_change_24h_string) + crypto.quote.uSD.percentChange24h
-                : context.getString(R.string.percentage_change_24h_string);
+                ? crypto.quote.uSD.percentChange24h.toString()
+                : "";
         percentageChange24hTextView.setText(percentageChange24h);
 
         if (crypto.quote.uSD.percentChange24h != null) {

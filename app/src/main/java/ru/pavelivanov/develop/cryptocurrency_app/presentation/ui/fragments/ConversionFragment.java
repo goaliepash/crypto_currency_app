@@ -18,6 +18,8 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Objects;
 
 import ru.pavelivanov.develop.cryptocurrency_app.R;
@@ -31,6 +33,8 @@ public class ConversionFragment extends Fragment implements IConversionView {
 
     private static final String ARG_CRYPTO = "CRYPTO";
     private static final String ARG_COST = "COST";
+    private static final String LANGUAGE_LOCALE = "ru";
+    private static final String COUNTRY_LOCALE = "RU";
     private Crypto crypto;
     private TextView nameTextView;
     private EditText amountEditText;
@@ -103,13 +107,13 @@ public class ConversionFragment extends Fragment implements IConversionView {
         String selectedItem = currencySpinner.getSelectedItem().toString();
         String cost = "";
         if (selectedItem.equals(getString(R.string.usd))) {
-            cost = CryptoConverter.getStringValue(data.quote.USD.price);
+            cost = CryptoConverter.getStringValue(data.quote.USD.price, NumberFormat.getCurrencyInstance(Locale.US));
         } else if (selectedItem.equals(getString(R.string.eur))) {
-            cost = CryptoConverter.getStringValue(data.quote.EUR.price);
+            cost = CryptoConverter.getStringValue(data.quote.EUR.price, NumberFormat.getCurrencyInstance(Locale.GERMANY));
         } else if (selectedItem.equals(getString(R.string.gbp))) {
-            cost = CryptoConverter.getStringValue(data.quote.GBP.price);
+            cost = CryptoConverter.getStringValue(data.quote.GBP.price, NumberFormat.getCurrencyInstance(Locale.UK));
         } else if (selectedItem.equals(getString(R.string.rub))) {
-            cost = CryptoConverter.getStringValue(data.quote.RUB.price);
+            cost = CryptoConverter.getStringValue(data.quote.RUB.price, NumberFormat.getCurrencyInstance(new Locale(LANGUAGE_LOCALE, COUNTRY_LOCALE)));
         }
         costTextView.setText(cost);
     }

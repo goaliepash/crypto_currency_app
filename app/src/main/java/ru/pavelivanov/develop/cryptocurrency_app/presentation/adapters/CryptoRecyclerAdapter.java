@@ -35,7 +35,7 @@ public class CryptoRecyclerAdapter extends Adapter<BaseHolder> {
             case VIEW_TYPE_NORMAL:
                 return new CryptoViewHolder(LayoutInflater
                         .from(parent.getContext())
-                        .inflate(R.layout.item_crypto_currency, parent, false), context);
+                        .inflate(R.layout.item_crypto_currency, parent, false));
             case VIEW_TYPE_LOADING:
                 return new ProgressHolder(LayoutInflater
                         .from(parent.getContext())

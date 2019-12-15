@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Objects;
 
 import ru.pavelivanov.develop.cryptocurrency_app.R;
@@ -35,6 +37,7 @@ public class InfoFragment extends Fragment {
     private TextView percentageChange7dTextView;
     private ImageView percentageChange7dImageView;
     private TextView marketCapTextView;
+    private NumberFormat moneyFormat = NumberFormat.getCurrencyInstance(Locale.US);
 
     public static InfoFragment newInstance(Crypto crypto) {
         Bundle args = new Bundle();
@@ -69,25 +72,25 @@ public class InfoFragment extends Fragment {
 
         maxSupplyTextView = view.findViewById(R.id.max_supply_text_view);
         String maxSupplyText = (crypto.maxSupply != null)
-                ? CryptoConverter.getStringValue(crypto.maxSupply)
+                ? CryptoConverter.getStringValue(crypto.maxSupply, moneyFormat)
                 : "";
         maxSupplyTextView.setText(maxSupplyText);
 
         totalSupplyTextView = view.findViewById(R.id.total_supply_text_view);
         String totalSupplyText = (crypto.totalSupply != null)
-                ? CryptoConverter.getStringValue(crypto.totalSupply)
+                ? CryptoConverter.getStringValue(crypto.totalSupply, moneyFormat)
                 : "";
         totalSupplyTextView.setText(totalSupplyText);
 
         priceTextView = view.findViewById(R.id.price_text_view);
         String priceText = (crypto.quote.uSD.price != null)
-                ? CryptoConverter.getStringValue(crypto.quote.uSD.price)
+                ? CryptoConverter.getStringValue(crypto.quote.uSD.price, moneyFormat)
                 : "";
         priceTextView.setText(priceText);
 
         volume24hTextView = view.findViewById(R.id.volume_24h_text_view);
         String volume24hText = (crypto.quote.uSD.volume24h != null)
-                ? CryptoConverter.getStringValue(crypto.quote.uSD.volume24h)
+                ? CryptoConverter.getStringValue(crypto.quote.uSD.volume24h, moneyFormat)
                 : "";
         volume24hTextView.setText(volume24hText);
 
@@ -132,7 +135,7 @@ public class InfoFragment extends Fragment {
 
         marketCapTextView = view.findViewById(R.id.market_cap_text_view);
         String marketCapText = (crypto.quote.uSD.marketCap != null)
-                ? CryptoConverter.getStringValue(crypto.quote.uSD.marketCap)
+                ? CryptoConverter.getStringValue(crypto.quote.uSD.marketCap, moneyFormat)
                 : "";
         marketCapTextView.setText(marketCapText);
     }

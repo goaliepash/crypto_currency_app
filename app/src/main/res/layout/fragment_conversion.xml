@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/crypto_currency_name_string"
-                style="@style/InfoTextStyle" />
+                style="@style/InfoTitleTextStyle" />
 
             <TextView
                 android:id="@+id/name_text_view"
@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cost_string"
-                style="@style/InfoTextStyle" />
+                style="@style/InfoTitleTextStyle" />
 
             <TextView
                 android:id="@+id/cost_text_view"

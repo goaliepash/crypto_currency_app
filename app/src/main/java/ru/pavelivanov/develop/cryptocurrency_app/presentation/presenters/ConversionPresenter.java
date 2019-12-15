@@ -38,4 +38,11 @@ public class ConversionPresenter {
         Call<PriceConversionResponse> call = repository.getPriceConversion(Constants.CMC_PRO_API_KEY, id, amount, convert);
         call.enqueue(new ConversionCallback(Objects.requireNonNull(conversionView)));
     }
+
+    /**
+     * Метод для отвязки прикрепленной View.
+     */
+    public void detachView() {
+        conversionViewWeakReference.clear();
+    }
 }

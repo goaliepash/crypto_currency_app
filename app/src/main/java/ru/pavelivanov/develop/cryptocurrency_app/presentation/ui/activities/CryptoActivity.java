@@ -48,6 +48,12 @@ public class CryptoActivity extends AppCompatActivity implements ICryptoView, Sw
         initView();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        cryptoPresenter.detachView();
+    }
+
     /**
      * Показать ProgressBar, пока идёт загрузка данных.
      */

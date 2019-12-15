@@ -43,4 +43,11 @@ public class CryptoPresenter {
         Call<ListingLatestResponse> call = repository.getListingLatest(Constants.CMC_PRO_API_KEY, start, limit, sort, sortDir);
         call.enqueue(new CryptoDataCallback(Objects.requireNonNull(cryptoView)));
     }
+
+    /**
+     * Метод для отвязки прикрепленной View.
+     */
+    public void detachView() {
+        cryptoViewWeakReference.clear();
+    }
 }

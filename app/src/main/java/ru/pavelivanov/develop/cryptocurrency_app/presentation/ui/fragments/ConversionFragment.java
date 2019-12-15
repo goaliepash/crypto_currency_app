@@ -67,6 +67,12 @@ public class ConversionFragment extends Fragment implements IConversionView {
     }
 
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+        presenter.detachView();
+    }
+
+    @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString(ARG_COST, costTextView.getText().toString());
